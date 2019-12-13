@@ -90,7 +90,7 @@
 
                         <configuration>
                             <includes>
-<!--                                <include>**/*ATMScenario.java</include>-->
+                                <include>**/*LoginScenario.java</include>
                             </includes>
 
                             <scope>test</scope>
