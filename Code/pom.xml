@@ -35,6 +35,13 @@
             <version>3.5.4</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -74,7 +81,7 @@
                         <phase>integration-test</phase>
                         <!--<configuration>-->
                         <!--
-                        You could list all the scenarios to be run herei using mulitple <scenarioClassName/>
+                        You could list all the steps to be run herei using mulitple <scenarioClassName/>
                         elements, but that seems really tedious, everytime you add a new scenario you'd have
                         to modifiy the list.  -->
                         <!--<scenarioClassNames>-->
@@ -83,7 +90,7 @@
 
                         <configuration>
                             <includes>
-                                <include>**/*ATMScenario.java</include>
+<!--                                <include>**/*ATMScenario.java</include>-->
                             </includes>
 
                             <scope>test</scope>
