@@ -13,6 +13,7 @@ Testowanie oprogramowania metodą **BDD**.
     - [3 Konfiguracja](#3-konfiguracja)
     - [4 Uruchomienie testów](#4-uruchomienie-testów)
     - [5 Generowanie raportu](#5-generowanie-raportu)
+  - [Konfiguracja środowiska](#konfiguracja-środowiska)
   - [Materiały](#materiały)
 
 ## Schemat projektu
@@ -48,7 +49,17 @@ Wykorzystanie _JUnit_ do wykonania testów opisanych w kroku [1](#1-opowiadania)
 
 _JBehave_ powinien sam wygenerować nam raport :smile:
 
--------
+---------------------------------------------------------------------------------
+
+## Konfiguracja środowiska
+
+Do tworzenia widoków - pliki .fxml najlepiej użyć programu **Scene Builder**.
+
+Do integracji IntelliJ z Lombok warto zainstalować plugin Lombok i włączyć przetwarzanie adnotacji.
+
+Do pracy z JBehave przyda się plugin do IntelliJ [JBehave Support](https://plugins.jetbrains.com/plugin/7268-jbehave-support/). Koloruje on składnie w historyjkach i pozwala na ich uruchamianie.
+
+---------------------------------------------------------------------------------
 
 ## Materiały
 
