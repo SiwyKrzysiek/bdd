@@ -1,6 +1,7 @@
-package pw;
+package pw.controlers;
 
 import javafx.fxml.FXML;
+import pw.App;
 
 import java.io.IOException;
 
