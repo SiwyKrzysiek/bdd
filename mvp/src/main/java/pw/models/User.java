@@ -28,6 +28,10 @@ public class User {
         return password;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

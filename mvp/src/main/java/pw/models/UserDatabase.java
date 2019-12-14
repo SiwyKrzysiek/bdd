@@ -34,7 +34,12 @@ public class UserDatabase {
         if (user.isEmpty())
             return false;
 
-        return user.get().getPassword().equals(password);
+        if (user.get().getPassword().equals(password)) {
+            loggedUser = user.get();
+            return true;
+        }
+
+        return false;
     }
 
     public List<User> getUsers() {
