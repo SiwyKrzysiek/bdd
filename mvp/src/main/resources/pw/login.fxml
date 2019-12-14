@@ -12,10 +12,10 @@
       <AnchorPane prefHeight="200.0">
          <children>
             <Label layoutX="202.0" layoutY="45.0" text="Login:" />
-            <TextField layoutX="250.0" layoutY="41.0" promptText="enter login" />
+            <TextField fx:id="loginTextField" layoutX="250.0" layoutY="41.0" promptText="enter login" />
             <Label layoutX="182.0" layoutY="79.0" text="Password:" />
-            <TextField layoutX="250.0" layoutY="75.0" promptText="enter password" />
-            <Button layoutX="259.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Login" />
+            <TextField fx:id="passwordTextField" layoutX="250.0" layoutY="75.0" promptText="enter password" />
+            <Button fx:id="loginButton" layoutX="259.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="25.0" prefWidth="82.0" text="Login" />
          </children>
       </AnchorPane>
    </children>
