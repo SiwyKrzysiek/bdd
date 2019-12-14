@@ -1,13 +1,19 @@
 package pw.controlers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import pw.models.Currencies;
+import pw.models.Exchange;
 import pw.models.User;
 import pw.models.UserDatabase;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class BankController implements Initializable {
 
@@ -21,10 +27,10 @@ public class BankController implements Initializable {
     private Button sendTransferButton;
 
     @FXML
-    private Spinner convertFromSpinner;
+    private Spinner<Double> convertFromSpinner;
 
     @FXML
-    private ChoiceBox currencyChoiceBox;
+    private ChoiceBox<String> currencyChoiceBox;
 
     @FXML
     private TextField conversionResultTextField;
@@ -34,7 +40,6 @@ public class BankController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         currentUser = UserDatabase.getInstance().getLoggedUser();
-//        System.out.println(currentUser);
 
         balanceTextField.setText(Double.toString(currentUser.getAccount().getBalance()));
 
@@ -43,6 +48,11 @@ public class BankController implements Initializable {
 
         convertFromSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(1, 200, 0));
 
+        convertFromSpinner.valueProperty().addListener(e -> handleCurrencyChange());
+        currencyChoiceBox.setOnAction(e -> handleCurrencyChange());
+
+        List<String> currencyNames = Arrays.stream(Currencies.values()).map(c -> c.toString()).collect(Collectors.toList());
+        currencyChoiceBox.setItems(FXCollections.observableArrayList(currencyNames));
     }
 
     private void handleSendTransfer() {
@@ -60,6 +70,17 @@ public class BankController implements Initializable {
             alert.showAndWait();
         }
 
+    }
+
+    private void handleCurrencyChange() {
+        if (currencyChoiceBox.getValue() == null)
+            return;
+
+        double current = convertFromSpinner.getValue();
+        String currency = currencyChoiceBox.getValue();
+
+        double result = Exchange.exchange(current, currency);
+        conversionResultTextField.setText(String.format("%.4f", result));
     }
 
     private void print(String text) {
