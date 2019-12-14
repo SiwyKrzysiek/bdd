@@ -26,8 +26,6 @@ public class JBehaveTest extends InjectableEmbedder {
 
     @Test
     public void run() {
-        URL location = codeLocationFromClass(this.getClass());
-
         List<String> storyPaths = new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/*.story", "");
         injectedEmbedder().runStoriesAsPaths(storyPaths);
     }
