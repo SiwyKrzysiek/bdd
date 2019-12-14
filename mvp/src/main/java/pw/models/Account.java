@@ -18,4 +18,8 @@ public class Account {
 
         this.balance = balance;
     }
+
+    public void withdraw(double amount) {
+        setBalance(balance - amount);
+    }
 }
