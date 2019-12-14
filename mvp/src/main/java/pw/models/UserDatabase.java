@@ -10,6 +10,8 @@ public class UserDatabase {
 
     private final List<User> users;
 
+    private User loggedUser;
+
     public static UserDatabase getInstance() {
         if (instance == null)
             instance = new UserDatabase(createInitialUsers());
@@ -37,5 +39,10 @@ public class UserDatabase {
 
     public List<User> getUsers() {
         return users;
+    }
+
+
+    public User getLoggedUser() {
+        return loggedUser;
     }
 }

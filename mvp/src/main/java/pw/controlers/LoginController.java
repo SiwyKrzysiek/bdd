@@ -27,17 +27,12 @@ public class LoginController {
     }
 
     @FXML
-    private void handleLogin() {
+    private void handleLogin() throws IOException {
         String login = loginTextField.getText();
         String password = passwordTextField.getText();
 
         if (userDatabase.isLoginDataValid(login, password)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText("Look, an Information Dialog");
-            alert.setContentText("Login OK");
-
-            alert.showAndWait();
+            App.setRoot("bank");
         }
         else {
             showInvalidLoginInfo();
