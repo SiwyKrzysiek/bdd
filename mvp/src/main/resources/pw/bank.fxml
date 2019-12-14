@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pw.controlers.BankController">
    <children>
       <Label layoutX="239.0" layoutY="37.0" text="Vivaldi Bank">
@@ -17,15 +16,15 @@
          </font>
       </Label>
       <Label layoutX="87.0" layoutY="102.0" text="Your balance" />
-      <TextField editable="false" layoutX="186.0" layoutY="98.0" prefHeight="25.0" prefWidth="267.0" />
+      <TextField fx:id="balanceTextField" editable="false" layoutX="186.0" layoutY="98.0" prefHeight="25.0" prefWidth="267.0" />
       <Label layoutX="85.0" layoutY="183.0" text="Help the poor" />
-      <Spinner layoutX="186.0" layoutY="179.0" prefHeight="25.0" prefWidth="139.0" />
-      <Button layoutX="342.0" layoutY="179.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Send transfer" />
+      <Spinner fx:id="transferSpinner" layoutX="186.0" layoutY="179.0" prefHeight="25.0" prefWidth="139.0" />
+      <Button fx:id="sendTransferButton" layoutX="342.0" layoutY="179.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Send transfer" />
       <Label layoutX="85.0" layoutY="251.0" prefHeight="17.0" prefWidth="95.0" text="Convert currency" />
-      <Spinner layoutX="82.0" layoutY="285.0" prefHeight="25.0" prefWidth="101.0" />
+      <Spinner fx:id="convertFromSpinner" layoutX="82.0" layoutY="285.0" prefHeight="25.0" prefWidth="101.0" />
       <Label layoutX="263.0" layoutY="251.0" text="To" />
-      <ChoiceBox layoutX="230.0" layoutY="285.0" prefHeight="25.0" prefWidth="80.0" />
-      <TextField editable="false" layoutX="355.0" layoutY="285.0" prefHeight="25.0" prefWidth="101.0" />
+      <ChoiceBox fx:id="currencyChoiceBox" layoutX="230.0" layoutY="285.0" prefHeight="25.0" prefWidth="80.0" />
+      <TextField fx:id="conversionResultTextField" editable="false" layoutX="355.0" layoutY="285.0" prefHeight="25.0" prefWidth="101.0" />
       <Label layoutX="389.0" layoutY="251.0" text="Result" />
    </children>
 </AnchorPane>
