@@ -15,7 +15,7 @@ public class BankController implements Initializable {
     private TextField balanceTextField;
 
     @FXML
-    private Spinner transferSpinner;
+    private Spinner<Double> transferSpinner;
 
     @FXML
     private Button sendTransferButton;
@@ -37,12 +37,29 @@ public class BankController implements Initializable {
 //        System.out.println(currentUser);
 
         balanceTextField.setText(Double.toString(currentUser.getAccount().getBalance()));
+
+        transferSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(1, 500, 0));
         sendTransferButton.setOnAction(e -> handleSendTransfer());
+
+        convertFromSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(1, 200, 0));
 
     }
 
     private void handleSendTransfer() {
-        print("Transfer incoming");
+        Double value = transferSpinner.getValue();
+
+        try {
+            currentUser.getAccount().withdraw(value);
+            balanceTextField.setText(Double.toString(currentUser.getAccount().getBalance()));
+        } catch (IllegalStateException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Out of money");
+            alert.setContentText("You don't have enough money to send this transfer");
+
+            alert.showAndWait();
+        }
+
     }
 
     private void print(String text) {
