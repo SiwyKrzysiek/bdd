@@ -9,10 +9,11 @@ import org.jbehave.core.junit.AnnotatedEmbedderRunner;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import steps.CurrencyChangeSteps;
 import steps.LoginScenarioSteps;
 import steps.MoneyWithdrawSteps;
+import steps.WrongLoginScenario;
 
-import java.net.URL;
 import java.util.List;
 
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
@@ -22,7 +23,8 @@ import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
         storyReporterBuilder = JBehaveTest.ReportBuilder.class)
 @UsingEmbedder(embedder = Embedder.class, generateViewAfterStories = true, ignoreFailureInStories = false,
         ignoreFailureInView = true, verboseFailures = true)
-@UsingSteps(instances = {LoginScenarioSteps.class, MoneyWithdrawSteps.class})
+@UsingSteps(instances = {LoginScenarioSteps.class, MoneyWithdrawSteps.class, CurrencyChangeSteps.class,
+        WrongLoginScenario.class})
 public class JBehaveTest extends InjectableEmbedder {
 
     @Test
